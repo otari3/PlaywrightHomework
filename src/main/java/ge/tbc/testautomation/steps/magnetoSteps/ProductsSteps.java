@@ -36,8 +36,45 @@ public class ProductsSteps extends MagnetoBaseSteps{
     productsPage.addToWishListBtn.click();
     return new RegistrationSteps(page);
   }
+  public WishListSteps addToWishList(){  
+    productsPage.addToWishListBtn.click();
+    return new WishListSteps(page);
+  }
   public ProductsSteps validateThatItemIsOutOfStock(String txt){  
       PlaywrightAssertions.assertThat(productsPage.availability).hasText(txt);
       return this;
+  }
+  public ProductsSteps scrollToReviewsSection(){  
+    productsPage.reviewLink.click();
+    return this;
+  }
+  public ProductsSteps validateReviewsCount(){
+    Integer reviewsCount = Integer.parseInt(productsPage.reviewLink.locator(productsPage.reviewCount).textContent());
+    PlaywrightAssertions.assertThat(productsPage.allReviews).hasCount(reviewsCount);
+    return this;
+  }
+  public ProductsSteps rateReviewWithStars(String stars){ 
+    clickUseingJs(productsPage.getStarts(stars));
+    return this;
+  }
+  public ProductsSteps fillReviewNickName(String nickName){ 
+    productsPage.reviewNickNameField.fill(nickName);
+    return this;
+  }
+  public ProductsSteps fillReviewSummery(String summery){ 
+    productsPage.summeryField.fill(summery);
+    return this;
+  }
+  public ProductsSteps fillReview(String review){  
+    productsPage.reviewField.fill(review);
+    return this;
+  }
+  public ProductsSteps clickSubmiteReview(){  
+    productsPage.submiteReviewField.click();
+    return this;
+  }
+  public ProductsSteps validateSucsfullyReviewModarationAlart(){  
+    PlaywrightAssertions.assertThat(productsPage.sucsefullySubmitedToModerators).isVisible();
+    return this;
   }
 }

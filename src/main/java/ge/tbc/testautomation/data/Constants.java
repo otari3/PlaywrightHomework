@@ -6,6 +6,7 @@ import java.util.Map;
 import ge.tbc.testautomation.util.helperClasses.MagnetoRegistrationForm;
 import ge.tbc.testautomation.util.helperClasses.ProductColorOptions;
 import ge.tbc.testautomation.util.helperClasses.RegistrationForm;
+import ge.tbc.testautomation.util.helperClasses.UserAdress;
 
 public class Constants {
   public static final String PRACTICE_SOFTWARE_URL = "https://practicesoftwaretesting.com/";
@@ -60,4 +61,16 @@ public class Constants {
   public static final MagnetoRegistrationForm MAGNETO_USER =  
   new MagnetoRegistrationForm("test123", "test321", "randomEmal582312@mail.ru", "Test12345.", "Test12345.");
   public static final String OUT_OF_STOCK = "Out of Stock";
+  public static final String MAGNETO_RADIENT_TEE_PRODUCT = "Radiant Tee";
+  public static final String TEST_USER_MAIL = "Testtt12345@gmail.com";
+  public static final String TEST_USER_PASSWORD = "thisIsMyTestPassword1234.";
+  public static final int SHIPING_PRICE = 5;
+  public static final String INVALID_DISCOUNT_CODE = "123456";
+  public static final int RANDOM_PRODUCT_PRICE = 22;
+  public static final UserAdress USER_ADRESS = new UserAdress("test1234", "test456", "testadress", null,  
+  null, "testcity", "Alaska", "12345-6789", "United States", "56565656");
+  public static final String REVIEW_NICK_NAME = "testname";
+  public static final String REVIEW_SUMMERY = "tesstsummery";
+  public static final String REVIEW = "testreview";
+  public static final String REVIEW_STARS = "3";
 }

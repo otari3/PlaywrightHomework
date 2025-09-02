@@ -20,6 +20,6 @@ public class MagnetoHomePage {
     return page.locator("//img[@src='%s' and @class='product-image-photo']".formatted(src));
   }
   public Locator getHotSellerItemByName(String name){ 
-    return page.locator("//a[@title='Argus All-Weather Tank']/ancestor::li");
+    return page.locator("//a[@title='%s']/ancestor::li".formatted(name));
   }
 }
