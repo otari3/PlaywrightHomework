@@ -10,6 +10,7 @@ import com.microsoft.playwright.assertions.PlaywrightAssertions;
 import ge.tbc.testautomation.Pages.magnetoPages.MagnetoHomePage;
 import ge.tbc.testautomation.util.Util;
 import ge.tbc.testautomation.util.helperClasses.ProductColorOptions;
+import io.qameta.allure.Step;
 
 public class MagnetoHomeSteps extends MagnetoBaseSteps {
   MagnetoHomePage magnetoHomePage;
@@ -20,6 +21,7 @@ public class MagnetoHomeSteps extends MagnetoBaseSteps {
       magnetoHomePage = new MagnetoHomePage(page);
       Util.removeAds(page);
   }
+  @Step("Select Color And Validate That Correct Picture Is Shown")
   public MagnetoHomeSteps selectColorAndValidatePicuter(ProductColorOptions productColorOptions){  
     Map<String,String> colors = productColorOptions.productColorsAndTheirSrc;
     String productName = productColorOptions.exactProductName;
@@ -32,7 +34,7 @@ public class MagnetoHomeSteps extends MagnetoBaseSteps {
     }
     return this;
   }
-
+  @Step("Navigate To Hot Seller Items From Home Page")
   public ProductsSteps navigateToHotSellerByName(String name){
     magnetoHomePage.getHotSellerItemByName(name).dblclick();
     return new ProductsSteps(page);

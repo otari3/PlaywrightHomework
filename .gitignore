@@ -7,3 +7,4 @@ out
 !mvn/wrapper/maven-wrapper.properties
 .DS_Store
 build
+allure-results

@@ -9,6 +9,8 @@ import ge.tbc.testautomation.runners.BaseTest;
 import ge.tbc.testautomation.steps.magnetoSteps.CartSteps;
 import ge.tbc.testautomation.steps.magnetoSteps.MagnetoBaseSteps;
 import ge.tbc.testautomation.steps.magnetoSteps.MagnetoHomeSteps;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 
 public class MagnetoTests2 extends BaseTest {
   MagnetoBaseSteps magnetoBaseSteps;
@@ -21,7 +23,8 @@ public class MagnetoTests2 extends BaseTest {
     magnetoHomeSteps = new MagnetoHomeSteps(page);
   }
 
-  @Test(priority = 1)
+  @Test(priority = 1,description = "Review Number Test")
+  @Severity(SeverityLevel.NORMAL)
   public void reviewNumberTest(){ 
     magnetoHomeSteps  
     .navigateToHotSellerByName(Constants.MAGNETO_RADIENT_TEE_PRODUCT) 
@@ -29,7 +32,8 @@ public class MagnetoTests2 extends BaseTest {
     .validateReviewsCount();
   }
 
-  @Test(priority = 2)
+  @Test(priority = 2,description = "Purchase Item Test")
+  @Severity(SeverityLevel.BLOCKER)
   public void purchaseItem(){ 
     magnetoBaseSteps  
     .navigateToSignIn() 
@@ -65,7 +69,8 @@ public class MagnetoTests2 extends BaseTest {
     .validateSuccsesPage();
   }
   //creating new context for mobile making so we wont be loged in
-  @Test(priority = 3)
+  @Test(priority = 3,description = "Mobile Navigation Test")
+  @Severity(SeverityLevel.CRITICAL)
   public void mobileNavigationTest(){
     page.close();
     browserContext.close();

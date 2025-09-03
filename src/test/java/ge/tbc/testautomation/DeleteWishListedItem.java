@@ -12,7 +12,11 @@ import ge.tbc.testautomation.steps.magnetoSteps.MagnetoHomeSteps;
 import ge.tbc.testautomation.steps.magnetoSteps.ProductsSteps;
 import ge.tbc.testautomation.steps.magnetoSteps.WishListSteps;
 import ge.tbc.testautomation.util.Util;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 @Test(description = "delete added product from wishlist (OPS-T11)")
+@Link("https://otarinozadze1.atlassian.net/projects/OPS?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page#!/v2/testCase/OPS-T11")
 public class DeleteWishListedItem extends BaseTest {
   MagnetoBaseSteps magnetoBaseSteps;
   MagnetoHomeSteps magnetoHomeSteps;
@@ -31,6 +35,7 @@ public class DeleteWishListedItem extends BaseTest {
   }
 
   @Test(priority = 1)
+  @Severity(SeverityLevel.BLOCKER)
   public void signInTest(){ 
       magnetoBaseSteps  
       .navigateToSignIn() 
@@ -40,23 +45,27 @@ public class DeleteWishListedItem extends BaseTest {
   }
 
   @Test(priority = 2)
+  @Severity(SeverityLevel.NORMAL)
   public void searchItemTest(){ 
     magnetoBaseSteps  
     .sendValueToSearch(Constants.MAGNETO_RADIENT_TEE_PRODUCT);
   }
   @Test(priority = 3)
+  @Severity(SeverityLevel.NORMAL)
   public void openSearchedItem(){ 
    productsSteps = magnetoBaseSteps  
     .navigateToSearchResutlsUseingValue(Constants.MAGNETO_RADIENT_TEE_PRODUCT)  
     .navigateToProductUseingTitle(Constants.MAGNETO_RADIENT_TEE_PRODUCT);
   }
   @Test(priority = 4)
+  @Severity(SeverityLevel.NORMAL)
   public void addItemToWishListTest(){  
    wishListSteps =  productsSteps 
     .addToWishList()  
     .validateThatItemExistsInWishList(Constants.MAGNETO_RADIENT_TEE_PRODUCT);
   }
   @Test(priority = 5)
+  @Severity(SeverityLevel.NORMAL)
   public void removeItemFromWishList(){ 
       wishListSteps 
       .hoverToItemInWishlist(Constants.MAGNETO_RADIENT_TEE_PRODUCT) 

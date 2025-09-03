@@ -12,6 +12,8 @@ import ge.tbc.testautomation.steps.magnetoSteps.CartSteps;
 import ge.tbc.testautomation.steps.magnetoSteps.MagnetoBaseSteps;
 import ge.tbc.testautomation.steps.magnetoSteps.MagnetoHomeSteps;
 import ge.tbc.testautomation.util.Util;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 
 
 
@@ -28,13 +30,15 @@ public class MagnetoTests extends BaseTest{
     Util.removeAds(page);
   }
 
-  @Test(priority = 1)
+  @Test(priority = 1,description = "Color Change Test")
+  @Severity(SeverityLevel.MINOR)
   public void colorChangeTest(){ 
     magnetoHomeSteps.selectColorAndValidatePicuter(Constants.MAGNETO_FIRST_PRODUCT) 
                     .selectColorAndValidatePicuter(Constants.MAGNETO_SECOND_PRODUCT)  
                     .selectColorAndValidatePicuter(Constants.MAGNETO_THIRD_PRODUCT);
   }
-  @Test(priority = 2)
+  @Test(priority = 2,description = "Add To Cart From Search")
+  @Severity(SeverityLevel.CRITICAL)
   public void addToCartTest(){  
    cartSteps = magnetoBaseSteps  
     .sendValueToSearch(Constants.MAGNETO_RANDOM_PRODUCT)  
@@ -47,13 +51,15 @@ public class MagnetoTests extends BaseTest{
     .openCartPageWithDropDown() 
     .validateIfItemExistWithNameAndPrice(Constants.MAGNETO_RANDOM_PRODUCT, Constants.MAGNETO_RANDOM_PRODUCT_PRICE);
   }
-  @Test(dependsOnMethods = {"addToCartTest"},priority = 3)
+  @Test(dependsOnMethods = {"addToCartTest"},priority = 3,description = "Delete Item From Cart")
+  @Severity(SeverityLevel.CRITICAL)
   public void deleteFromCart(){ 
     cartSteps.deleteItemFromCart(Constants.MAGNETO_RANDOM_PRODUCT)  
     .validateItemDoesNotExistInCart(Constants.MAGNETO_RANDOM_PRODUCT);
   }
 
-  @Test(priority = 4)
+  @Test(priority = 4,description = "Save Items To Favorite While Unauthorized")
+  @Severity(SeverityLevel.BLOCKER)
   public void saveToFavoritesWhileUnauthorizedTest(){
    magnetoBaseSteps  
     .sendValueToSearch(Constants.MAGNETO_RANDOM_PRODUCT)  
@@ -71,7 +77,8 @@ public class MagnetoTests extends BaseTest{
     .validateThatSuccsesMessageIsVissable(Constants.MAGNETO_RANDOM_PRODUCT) 
     .validateThatWelcomeMesageIsCorrect(Constants.MAGNETO_USER.firstName, Constants.MAGNETO_USER.lastName);
   }
-  @Test(priority = 5)
+  @Test(priority = 5,description = "out of stock test")
+  @Severity(SeverityLevel.CRITICAL)
   public void outOfStockOfferTest(){  
      magnetoBaseSteps  
     .sendValueToSearch(Constants.MAGNETO_RANDOM_PRODUCT)  

@@ -7,6 +7,7 @@ import com.microsoft.playwright.assertions.PlaywrightAssertions;
 
 import ge.tbc.testautomation.Pages.magnetoPages.SearchPage;
 import ge.tbc.testautomation.util.Util;
+import io.qameta.allure.Step;
 
 
 public class SearchSteps extends MagnetoBaseSteps {
@@ -18,6 +19,7 @@ public class SearchSteps extends MagnetoBaseSteps {
     this.page = page;
     Util.removeAds(page);
   }
+  @Step("Navigate To Product Useing Title")
   public ProductsSteps navigateToProductUseingTitle(String title){
     PlaywrightAssertions.assertThat(searchPage.searchPageHeader).isVisible();
     clickUseingJs(searchPage.getProductByTitleLocator(title));
