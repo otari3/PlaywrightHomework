@@ -22,6 +22,7 @@ public class AddReview  extends BaseTest {
   @BeforeClass
   public void setUpPage(){  
     openPage(Constants.MAGNETO_URL);
+    System.out.println("this is conflictFile 1");
     magnetoBaseSteps = new MagnetoBaseSteps(page);
     magnetoHomeSteps = new MagnetoHomeSteps(page);
   }
