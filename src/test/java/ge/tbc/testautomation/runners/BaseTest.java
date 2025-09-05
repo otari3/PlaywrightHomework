@@ -11,6 +11,7 @@ import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.assertions.PlaywrightAssertions;
 
 
 
@@ -30,7 +31,7 @@ public class BaseTest {
     contextOptions.setViewportSize(null);
     browserContext = browser.newContext(contextOptions);
     page = browserContext.newPage();
-    page.setDefaultTimeout(30000);
+    PlaywrightAssertions.setDefaultAssertionTimeout(10000);
   }
   protected void openPage(String url){  
       page.navigate(url);
