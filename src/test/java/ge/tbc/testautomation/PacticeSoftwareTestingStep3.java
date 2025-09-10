@@ -11,6 +11,8 @@ import ge.tbc.testautomation.steps.RegistrationSteps;
 import ge.tbc.testautomation.steps.SignInSteps;
 import ge.tbc.testautomation.steps.SoftwareTestingBaseSteps;
 import ge.tbc.testautomation.util.helperClasses.RegistrationForm;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 
 public class PacticeSoftwareTestingStep3 extends MultipleContextBaseTest {
   SoftwareTestingBaseSteps softwareTestingBaseSteps;
@@ -47,7 +49,8 @@ public class PacticeSoftwareTestingStep3 extends MultipleContextBaseTest {
     .clickLoginBtn();
     homeSteps.navigateBackToHomePage();
   }
-  @Test(priority = 1)
+  @Test(priority = 1,description = "Favorite Test")
+  @Severity(SeverityLevel.CRITICAL)
   public void favouritesTest(){ 
   homeSteps
     .getCatagoryPageByTitle(Constants.RANDOM_PRODUCT) 
@@ -67,7 +70,8 @@ public class PacticeSoftwareTestingStep3 extends MultipleContextBaseTest {
   .findIfItemExistsByTitle(Constants.RANDOM_PRODUCT);
   
   }
-  @Test(priority = 2)
+  @Test(priority = 2,description = "Filter Test")
+  @Severity(SeverityLevel.CRITICAL)
   public void filterTest(){ 
     homeSteps
     .chooseCatagoryByTitle(Constants.HAMMER_CATAGORY_BNT_TITLE)  
@@ -75,7 +79,8 @@ public class PacticeSoftwareTestingStep3 extends MultipleContextBaseTest {
     .chooseCatagoryByTitle(Constants.TOOL_BELTS_CATAGORY_BTN_TITLE) 
     .validateCatagorySize(Constants.HAMMER_CATAGORY_SIZE+Constants.TOOL_BELTS_CATAGORY_SIZE);
   }
-  @Test(priority = 3)
+  @Test(priority = 3,description = "Remove From Favorite")
+  @Severity(SeverityLevel.CRITICAL)
   public void removeFavouriteTest(){  
     homeSteps 
     .getCatagoryPageByTitle(Constants.RANDOM_PRODUCT) 
@@ -89,7 +94,8 @@ public class PacticeSoftwareTestingStep3 extends MultipleContextBaseTest {
     .findIfItemDoesNotExistByTitle(Constants.RANDOM_PRODUCT);
 
   }
-  @Test(priority = 4)
+  @Test(priority = 4,description = "Tag Tests")
+  @Severity(SeverityLevel.CRITICAL)
   public void tagsTest(){ 
     homeSteps 
     .chooseCatagoryByTitle(Constants.HAMMER_CATAGORY_BNT_TITLE) 

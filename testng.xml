@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="playWright">
+  <test name="add review">
+      <classes>
+        <class name = "ge.tbc.testautomation.DeleteWishListedItem"/>
+        <class name = "ge.tbc.testautomation.MagnetoTests2"/>
+        <class name = "ge.tbc.testautomation.PacticeSoftwareTestingStep2"/>
+        <class name = "ge.tbc.testautomation.PacticeSoftwareTestingStep3"/>
+      </classes>
+  </test>
+</suite>

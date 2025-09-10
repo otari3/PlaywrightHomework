@@ -12,6 +12,8 @@ import ge.tbc.testautomation.steps.RegistrationSteps;
 import ge.tbc.testautomation.steps.SignInSteps;
 import ge.tbc.testautomation.steps.SoftwareTestingBaseSteps;
 import ge.tbc.testautomation.util.helperClasses.RegistrationForm;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 //there is lots of duplicat code here but homework it self is lots of duplicat work so i can not avoid it
 public class PacticeSoftwareTestingStep2 extends BaseTest  {
   SoftwareTestingBaseSteps softwareTestingBaseSteps;
@@ -28,7 +30,8 @@ public class PacticeSoftwareTestingStep2 extends BaseTest  {
     homeSteps = new HomeSteps(page);
   }
 
-  @Test(priority = 1)
+  @Test(priority = 1,description = "Registration Test")
+  @Severity(SeverityLevel.BLOCKER)
   public void registerUser(){
   signInSteps = softwareTestingBaseSteps.navigateToSignIn();
   registrationSteps = signInSteps.navigateToRegistrationFrom();
@@ -46,7 +49,8 @@ public class PacticeSoftwareTestingStep2 extends BaseTest  {
         .selectCountry(firstUser.country)
         .register();
   }
-  @Test(priority = 2)
+  @Test(priority = 2,description = "Sign in Test")
+  @Severity(SeverityLevel.BLOCKER)
   public void siginInTest(){  
     if (isUserRegistered) {
       signInSteps.navigateToSignIn();
@@ -57,7 +61,8 @@ public class PacticeSoftwareTestingStep2 extends BaseTest  {
     .clickLoginBtn()  
     .navigateToHome();
   }
-  @Test(priority = 3)
+  @Test(priority = 3,description = "Favorite Test")
+  @Severity(SeverityLevel.CRITICAL)
   public void favouritesTest() throws InterruptedException{ 
     homeSteps 
     .getCatagoryPageByTitle(Constants.RANDOM_PRODUCT)  
@@ -80,7 +85,8 @@ public class PacticeSoftwareTestingStep2 extends BaseTest  {
                   .findIfItemExistsByTitle(Constants.RANDOM_PRODUCT);
   }
 
-  @Test(priority = 4)
+  @Test(priority = 4,description = "Filter Test")
+  @Severity(SeverityLevel.NORMAL)
   public void filterTest(){ 
     homeSteps 
     .navigateBackToHomePage() 
@@ -89,7 +95,8 @@ public class PacticeSoftwareTestingStep2 extends BaseTest  {
     .chooseCatagoryByTitle(Constants.TOOL_BELTS_CATAGORY_BTN_TITLE)  
     .validateCatagorySize(Constants.TOOL_BELTS_CATAGORY_SIZE+Constants.HAMMER_CATAGORY_SIZE);
   }
-  @Test(priority = 5)
+  @Test(priority = 5,description = "Remove Product From Favorite")
+  @Severity(SeverityLevel.CRITICAL)
   public void removeFavouriteTest(){  
     softwareTestingBaseSteps.openDropDown().navigateToFavorite();
     favoritSteps  
@@ -104,7 +111,8 @@ public class PacticeSoftwareTestingStep2 extends BaseTest  {
     softwareTestingBaseSteps.openDropDown().navigateToFavorite();
     favoritSteps.findIfItemDoesNotExistByTitle(Constants.RANDOM_PRODUCT);
   }
-  @Test(priority = 6)
+  @Test(priority = 6,description = "Tag Tests")
+  @Severity(SeverityLevel.NORMAL)
   public void tagsTest(){ 
     homeSteps 
     .navigateBackToHomePage()  
