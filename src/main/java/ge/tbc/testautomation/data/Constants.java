@@ -73,4 +73,5 @@ public class Constants {
   public static final String REVIEW_SUMMERY = "tesstsummery";
   public static final String REVIEW = "testreview";
   public static final String REVIEW_STARS = "3";
+  public static final String TECH_CANVES_URL_REGISTRATION = "https://techcanvass.com/examples/register.html";
 }
